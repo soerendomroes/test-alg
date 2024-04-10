@@ -23,7 +23,25 @@ algorithm TestAlg(TestAlgLayoutProvider) {
     metadataClass options.TestAlgOptions
     supports reverseInput
     supports org.eclipse.elk.padding = new ElkPadding(10)
-    supports org.eclipse.elk.spacing.edgeEdge = 5
-    supports org.eclipse.elk.spacing.edgeNode = 10
-    supports org.eclipse.elk.spacing.nodeNode = 10
+    supports funfun
+    supports funfunfun
+}
+
+option funfun : boolean {
+    label "Reverse Input"
+    description
+        "True if nodes should be placed in reverse order of their
+        appearance in the graph."
+    default = false
+    targets parents
+}
+
+
+option funfunfun : boolean {
+    label "Reverse Input"
+    description
+        "True if nodes should be placed in reverse order of their
+        appearance in the graph."
+    default = false
+    targets parents
 }

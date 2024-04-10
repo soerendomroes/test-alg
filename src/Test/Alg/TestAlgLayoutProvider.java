@@ -29,9 +29,9 @@ public class TestAlgLayoutProvider extends AbstractLayoutProvider {
         // Retrieve several properties
         ElkPadding padding = layoutGraph.getProperty(TestAlgOptions.PADDING);
         
-        double edgeEdgeSpacing = layoutGraph.getProperty(TestAlgOptions.SPACING_EDGE_EDGE);
-        double edgeNodeSpacing = layoutGraph.getProperty(TestAlgOptions.SPACING_EDGE_NODE);
-        double nodeNodeSpacing = layoutGraph.getProperty(TestAlgOptions.SPACING_NODE_NODE);
+//        double edgeEdgeSpacing = layoutGraph.getProperty(TestAlgOptions.SPACING_EDGE_EDGE);
+//        double edgeNodeSpacing = layoutGraph.getProperty(TestAlgOptions.SPACING_EDGE_NODE);
+//        double nodeNodeSpacing = layoutGraph.getProperty(TestAlgOptions.SPACING_NODE_NODE);
         
         // Get and possibly reverse the list of nodes to lay out
         List<ElkNode> nodes = new ArrayList<>(layoutGraph.getChildren());
@@ -57,14 +57,14 @@ public class TestAlgLayoutProvider extends AbstractLayoutProvider {
             node.setY(padding.top);
             
             // Advance the coordinates
-            currX += node.getWidth() + nodeNodeSpacing;
+//            currX += node.getWidth() + nodeNodeSpacing;
             currY = Math.max(currY, padding.top + node.getHeight());
             nodePlacingMonitor.log("currX: " + currX);
             nodePlacingMonitor.logGraph(layoutGraph, node.getIdentifier() + " placed");
         }
         
         if (!nodes.isEmpty()) {
-            currX -= nodeNodeSpacing;
+//            currX -= nodeNodeSpacing;
         }
         
         // Close the sub monitor
@@ -78,7 +78,7 @@ public class TestAlgLayoutProvider extends AbstractLayoutProvider {
         
         // Route the edges
         if (!layoutGraph.getContainedEdges().isEmpty()) {
-            currY += edgeNodeSpacing;
+//            currY += edgeNodeSpacing;
             edgeRoutingMonitor.log("currY: " + currY);
             
             for (ElkEdge edge : layoutGraph.getContainedEdges()) {
@@ -97,12 +97,12 @@ public class TestAlgLayoutProvider extends AbstractLayoutProvider {
                 ElkGraphUtil.createBendPoint(section, section.getStartX(), currY);
                 ElkGraphUtil.createBendPoint(section, section.getEndX(), currY);
                                 
-                currY += edgeEdgeSpacing;
+//                currY += edgeEdgeSpacing;
                 edgeRoutingMonitor.log("currY: " + currY);
                 edgeRoutingMonitor.logGraph(layoutGraph, source.getIdentifier() + " -> " + target.getIdentifier());
             }
             
-            currY -= edgeEdgeSpacing;
+//            currY -= edgeEdgeSpacing;
         }
         
         // Close the sub monitor
