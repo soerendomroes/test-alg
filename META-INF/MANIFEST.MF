@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: TestAlg
+Bundle-SymbolicName: Test.Alg
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.elk.core,
+ org.eclipse.elk.graph,
+ org.eclipse.elk.alg.common,
+ com.google.guava
+Automatic-Module-Name: Test.Alg
+Bundle-RequiredExecutionEnvironment: JavaSE-17
